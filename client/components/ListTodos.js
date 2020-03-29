@@ -62,16 +62,16 @@ return (
                 {todos.map(todo => (
                     <tr key={todo.todo_id}>
                         <td>{todo.description}</td>
-                        <td><EditTodo todo= {todo}/></td>
+                        <td><EditTodo todo={todo} /></td>
                         <td><button className="btn btn-danger"
                             onClick="deleteTodo(key)">
                             Delete</button></td>
                     </tr>
                 ))}
             </tbody>
-        </table >
+        </table>
 
     </fragment >
-)};
+);
 
 export default ListTodos;
