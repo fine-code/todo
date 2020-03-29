@@ -1,12 +1,9 @@
 const express = require("express")
 
 //connect to environment variables package
-require("dotenv").config();
+const config = require("./config");
 
-//test the .env package
-console.log(process.env);
-
-const app = express(); //to use the library
+const app = express(); //to use the express library
 const cors = require("cors")
 
 //use this connection to write queries to database

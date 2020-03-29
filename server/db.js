@@ -1,11 +1,12 @@
+const config = require("./config");
 const Pool = require("pg").Pool;
 //connect server to database
 const pool = new Pool({
-    user: "postgres", 
-    password: process.env.PASSWORD,
-    host: "localhost",
-    port: 5432,
-    database: "perntodo"
+    user: config.USER, 
+    password: config.PASSWORD,
+    host: config.HOST,
+    port: config.PORT,
+    database: config.DATABASE
 });
 
 module.exports = pool;
