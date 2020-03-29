@@ -16,17 +16,24 @@ app.use(cors());
 app.use(express.json());
 
 //test port to make sure it's listening
-app.listen(5432, () => {
-    console.log("server has started on port 5432");
+app.listen(5000, () => {
+    console.log("server has started on port 5000");
 });
 
 //ROUTES//
 
-//create a todo
 
+//create a todo
 app.post("/todos", async(req, res) => {
     try {
-        console.log(req.body)
+        console.log(req.body);
+        const { description } = req.body;
+        const newTodo = await pool.query(
+            "INSERT INTO todo (description)" + 
+            "VALUES ($1)" +
+             "RETURNING *", //return the data back
+        [description]);
+        res.json(newTodo.rows[0]);
     }
     catch (err) {
         console.error(err.message);
@@ -40,3 +47,7 @@ app.post("/todos", async(req, res) => {
 //update a todo
 
 //delete a todo
+
+
+
+
